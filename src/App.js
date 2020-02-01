@@ -24,11 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <MyComponent
-          title={this.state.title}
-          name={this.state.name}
-          onClick={this.onClick}
-        />
+        <input value='name'></input>
       </div>
     );
   }

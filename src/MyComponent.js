@@ -12,12 +12,8 @@ const defaultProps = {
 };
 
 class MyComponent extends Component {
-  UNSAFE_componentWillMount() {
-    console.log('will mount');
-  }
-
-  componentDidMount() {
-    console.log('did mount');
+  UNSAFE_componentDidUpdate(prevProps, prevState) {
+    console.log(this.props, this.state, prevProps, prevState);
   }
 
   render() {
