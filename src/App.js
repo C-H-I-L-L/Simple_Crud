@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import MyComponent from './MyComponent';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-  onSubmit(event) {
-    event.preventDefault();
+    this.state = {
+      title: 'App title'
+    };
 
-    console.log(this.input.value);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    this.setState({
+      title: 'New app title'
+    });
   }
 
   render() {
-    const list = ['item 1', 'item 2', 'another item'];
-
     return (
       <div className='App'>
-        <h1>
-          {list.map(item => {
-            return (
-              <div key={item} onMouseEnter={this.onMouseEnter}>
-                {item}
-              </div>
-            );
-          })}
-        </h1>
-        <form onSubmit={this.onSubmit}>
-          <input onChange={this.onChange} ref={input => (this.input = input)} />
-        </form>
+        <h1>{this.state.title}</h1>
+        <div onClick={this.onClick}>Click here!</div>
+        <MyComponent title={3} name='Dudeman' onClick={this.onClick} />
       </div>
     );
   }
